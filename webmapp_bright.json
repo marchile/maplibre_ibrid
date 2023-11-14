@@ -51,7 +51,7 @@
     }
   },
   "sprite": "https://openmaptiles.github.io/osm-bright-gl-style/sprite",
-  "glyphs": "https://api.maptiler.com/fonts/{fontstack}/{range}.pbf?key={key}",
+  "glyphs": "https://api.maptiler.com/fonts/{fontstack}/{range}.pbf?key={UNMsYZxSmPoCnnezOW3k}",
   "layers": [
     {
       "id": "webmapp_blank",
