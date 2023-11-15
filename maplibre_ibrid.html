@@ -40,9 +40,11 @@
         "type": "raster-dem",
         "url": `https://api.maptiler.com/tiles/terrain-rgb-v2/tiles.json?key=${key}`
       });
-      map.setTerrain({
-        source: "terrain",
-                    exaggeration: 2
+      map.setTerrain(
+        
+        {
+            source: "terrainSource",
+            exaggeration: 1,
       });
 
       // Add navigation control
