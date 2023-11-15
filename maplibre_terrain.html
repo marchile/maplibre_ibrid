@@ -1,69 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Maplibre terrain</title>
-  <script src="https://unpkg.com/maplibre-gl/dist/maplibre-gl.js"></script>
-  <link href="https://unpkg.com/maplibre-gl/dist/maplibre-gl.css" rel="stylesheet" />
+  <meta charset='utf-8' />
+  <title>La Tua Mappa</title>
+  <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+  <script src='https://unpkg.com/maplibre-gl/dist/maplibre-gl.js'></script>
+  <link href='https://unpkg.com/maplibre-gl/dist/maplibre-gl.css' rel='stylesheet' />
   <style>
-    body { 
-      margin: 0; 
-      padding: 0;
-    }
-
-    #map { 
-      position: absolute; 
-      top: 0; 
-      bottom: 0; 
-      width: 100%; 
-    }
+    body { margin: 0; padding: 0; }
+    #map { position: absolute; top: 0; bottom: 0; width: 100%; }
   </style>
 </head>
 <body>
-  <div id="map"></div>
-  <script>
-    const key = 'h2AtggfKuemnoaJE5zmz';
-    const map = new maplibregl.Map({
-      container: 'map',
-      style: 'https://raw.githubusercontent.com/marchile/maplibre_ibrid/main/webmapp_bright.json',
-      center: [6.85684, 45.83595],
-      zoom: 14,
-      pitch: 61,
-      bearing: 172,
-      maxPitch: 85,
-      maxZoom: 14
-    });
 
-    map.on('load', () => {
-      map.addSource("terrain", {
-        "type": "raster-dem",
-        "url": `https://api.maptiler.com/tiles/terrain-rgb-v2/tiles.json?key=${key}`
-      });
+<div id='map'></div>
 
-      map.setTerrain({
-    source: "terrain",
-    exaggeration: 1,
-});
+<script>
+  // Replace 'NOME_TUO_FILE.json' with the correct path to your JSON file
+  var map = new maplibregl.Map({
+    container: 'map',
+    style: 'https://raw.githubusercontent.com/marchile/maplibre_ibrid/main/webmapp_bright.json?token=GHSAT0AAAAAACKJAK4C4KIFTNYWFMIRN5JQZKTNCJA', // Replace with the correct path
+    center: [0, 0], // Initial map center coordinates [longitude, latitude]
+    zoom: 2 // Initial map zoom level
+  });
 
-     map.addControl(
-        new maplibre.NavigationControl({
-          visualizePitch: true,
-          showZoom: true,
-          showCompass: true,
-        })
-      );
+  // Add navigation control
+  map.addControl(new maplibregl.NavigationControl());
 
-      map.addControl(
-        new maplibre.TerrainControl({
-          source: "terrain",
-          exaggeration: 1,
-        })
-      );
+  // Add any additional customization or interactivity as needed
+</script>
 
-    map.on('error', function(err) {
-      throw new Error("To load the map, you must replace YOUR_MAPTILER_API_KEY_HERE first, see README");
-    });
-  </script>
 </body>
 </html>
