@@ -43,13 +43,24 @@
       map.setTerrain(
         
         {
-            source: "terrainSource",
+            source: "terrain",
             exaggeration: 1,
       });
 
-      // Add navigation control
-      map.addControl(new maplibregl.NavigationControl());
-    });
+     map.addControl(
+        new maplibre.NavigationControl({
+          visualizePitch: true,
+          showZoom: true,
+          showCompass: true,
+        })
+      );
+
+      map.addControl(
+        new maplibre.TerrainControl({
+          source: "terrain",
+          exaggeration: 1,
+        })
+      );
 
     map.on('error', function(err) {
       throw new Error("To load the map, you must replace YOUR_MAPTILER_API_KEY_HERE first, see README");
