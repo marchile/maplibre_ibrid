@@ -41,7 +41,8 @@
         "url": `https://api.maptiler.com/tiles/terrain-rgb-v2/tiles.json?key=${key}`
       });
       map.setTerrain({
-        source: "terrain"
+        source: "terrain",
+                    exaggeration: 2
       });
 
       // Add navigation control
