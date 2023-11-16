@@ -1,34 +1,28 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset='utf-8' />
-  <title>La Tua Mappa</title>
-  <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-  <script src="https://cdn.maptiler.com/maplibre-gl-js/v2.4.0/maplibre-gl.js"></script>
-  <link href="https://cdn.maptiler.com/maplibre-gl-js/v2.4.0/maplibre-gl.css" rel="stylesheet" />
-  <style>
-    body { margin: 0; padding: 0; }
-    #map { position: absolute; top: 0; bottom: 0; width: 100%; }
-  </style>
+    <title>Display a map</title>
+    <meta property="og:description" content="Initialize a map in an HTML element with MapLibre GL JS." />
+    <meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel='stylesheet' href='https://unpkg.com/maplibre-gl@3.6.1/dist/maplibre-gl.css' />
+    <script src='https://unpkg.com/maplibre-gl@3.6.1/dist/maplibre-gl.js'></script>
+    <style>
+        body { margin: 0; padding: 0; }
+        html, body, #map { height: 100%; }
+    </style>
 </head>
 <body>
-
-<div id='map'></div>
-
+<div id="map"></div>
 <script>
-const key = urlParams.get('h2AtggfKuemnoaJE5zmz')
-  var map = new maplibregl.Map({
-    container: 'map',
-    style: 'https://raw.githubusercontent.com/marchile/maplibre_ibrid/main/webmapp_bright.json', // Replace with the correct path
-    center: [0, 0], // Initial map center coordinates [longitude, latitude]
-    zoom: 2 // Initial map zoom level
-  });
-  // Add navigation control
-  map.addControl(new maplibregl.NavigationControl());
-
-  // Add any additional customization or interactivity as needed
+  const key = urlParams.get('h2AtggfKuemnoaJE5zmz');
+  const map = new maplibregl.Map({
+        container: 'map', // container id
+        style: 'https://raw.githubusercontent.com/marchile/maplibre_ibrid/main/webmapp_bright.json', // style URL
+        center: [0, 0], // starting position [lng, lat]
+        zoom: 1 // starting zoom
+    });
 </script>
-
 </body>
 </html>
 
